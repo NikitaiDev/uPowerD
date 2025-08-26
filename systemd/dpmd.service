@@ -1,0 +1,15 @@
+# File: systemd/dpmd.service
+[Unit]
+Description=Dynamic Power Manager Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/dpmd
+Restart=on-failure
+RestartSec=2
+AmbientCapabilities=CAP_SYS_ADMIN
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
